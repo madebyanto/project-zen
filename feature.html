@@ -61,38 +61,272 @@
     <script src="script.js"></script>
 </body>
     <style>
-        /* Esempio di stili che dovrebbero già essere nel tuo style.css dalla parte precedente */
-.feature-card {
-    /* ... altri stili per la card ... */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Esempio di font, puoi cambiarlo */
+
+:root {
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #AAAAAA;
+    --background-color: #000000;
+    --card-background: #1A1A1A;
+    --button-background: #FFFFFF;
+    --button-text-color: #000000;
+    --border-color: #333333;
+}
+
+/* Stili globali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
     display: flex;
-    flex-direction: column; /* Per impilare icona, titolo e testo */
-    align-items: flex-start; /* Allinea a sinistra */
-    gap: 15px; /* Spazio tra gli elementi interni */
+    flex-direction: column;
+    align-items: center; /* Per centrare il contenuto principale */
 }
 
-.feature-card .feature-icon {
-    width: 50px;  /* O la dimensione che desideri per le icone */
-    height: 50px; /* Assicurati che l'altezza sia coerente */
-    /* Potresti aggiungere un margin-bottom se non usi 'gap' sul parent */
-    /* margin-bottom: 15px; */
+/* Stili per la Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    position: sticky; /* Rende la navbar "appiccicosa" in alto */
+    top: 0;
+    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
 }
 
-/* Assicurati anche che la sezione delle features sia flessibile e responsiva */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 24px; /* Dimensione del logo */
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-text-color);
+}
+
+.navbar .social-icons img {
+    height: 20px;
+    margin-left: 15px;
+    filter: invert(100%); /* Per rendere le icone bianche se sono scure */
+}
+
+/* Stili per la Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 100px 5%; /* Padding per dare spazio */
+    max-width: 800px; /* Limita la larghezza del testo */
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+}
+
+.hero-section button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hero-section button:hover {
+    opacity: 0.9;
+}
+
+.hero-section .not-available {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+/* Stili per la sezione Screenshot (usata nella homepage) */
+.screenshot-section {
+    width: 100%;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.screenshot-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: 300px; /* Altezza fissa per le immagini */
+    object-fit: cover; /* Assicura che l'immagine copra l'area */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.screenshot-item p {
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+/* Stili per la sezione Features (usata in entrambe le pagine) */
 .features-section {
     width: 100%;
-    padding: 80px 5%; /* Padding coerente con la homepage */
+    padding: 80px 5%; /* Padding per dare spazio */
     display: flex;
     justify-content: center; /* Centra le card */
     gap: 30px; /* Spazio tra le card */
     flex-wrap: wrap; /* Per far andare a capo le card su schermi piccoli */
+    max-width: 1200px; /* Limita la larghezza massima del contenitore */
+    margin: 0 auto; /* Centra la sezione */
 }
 
-/* La classe `full-width-features` è un po' ridondante se .features-section è già così,
-   ma non fa male. Potrebbe essere usata per override se necessario. */
-.features-section.full-width-features {
-    max-width: 1200px; /* Limita la larghezza massima del contenitore delle features */
-    margin: 0 auto; /* Centra il contenitore */
+/* Stili per le singole Feature Card */
+.feature-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 450px; /* Larghezza massima per le card */
+    flex: 1; /* Permette alle card di espandersi */
+    min-width: 300px; /* Larghezza minima per le card */
+    display: flex;
+    flex-direction: column; /* Icona, titolo, testo impilati */
+    align-items: flex-start; /* Allinea a sinistra */
+    border: 1px solid var(--border-color);
 }
+
+/* Stili per le icone all'interno delle Feature Card */
+.feature-card .feature-icon {
+    width: 50px; /* Larghezza dell'icona */
+    height: 50px; /* Altezza dell'icona */
+    margin-bottom: 15px; /* Spazio sotto l'icona */
+    /* Se le tue immagini sono SVG, non è necessario filter: invert() */
+    /* Se sono PNG/JPG e vuoi che siano bianche su sfondo scuro, assicurati che siano già bianche o usa: */
+    /* filter: brightness(0) invert(1); */
+}
+
+/* MEDIA QUERIES per la Responsività */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Impila gli elementi della navbar */
+        padding: 15px 5%;
+    }
+
+    .navbar nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap; /* Fa andare a capo le voci di navigazione */
+        justify-content: center;
+    }
+
+    .navbar nav ul li {
+        margin: 5px 10px;
+    }
+
+    .navbar .social-icons {
+        margin-top: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .screenshot-grid {
+        grid-template-columns: 1fr; /* Una colonna su schermi più piccoli */
+    }
+
+    .features-section {
+        padding: 50px 5%; /* Riduce il padding su schermi più piccoli */
+    }
+
+    .feature-card {
+        min-width: unset; /* Rimuove il min-width per una migliore adattabilità */
+        width: 100%; /* Occupano tutta la larghezza disponibile */
+        max-width: 400px; /* Limita la larghezza per non essere troppo grandi su tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+
+    .hero-section p {
+        font-size: 0.9em;
+    }
+
+    .screenshot-item img {
+        height: 250px; /* Riduce l'altezza delle immagini su mobile */
+    }
+
+    .feature-card h3 {
+        font-size: 1.3em; /* Riduce la dimensione del titolo */
+    }
+
+    .feature-card p {
+        font-size: 0.9em; /* Riduce la dimensione del testo */
+    }
+}
+
 
     </style>
 </html>
