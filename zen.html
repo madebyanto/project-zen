@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenOS - Revive Your Old Android Phone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-glyphs/30/FFFFFF/zen-circle.png" type="image/png"> </head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/zen-circle.png" alt="ZenOS Logo"> <span>ZenOS</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About US</a></li>
+                <li><a href="#">Desktop Edition</a></li>
+                <li><a href="#">Updates</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/discord.png" alt="Discord"></a> <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="Instagram"></a> </div>
+    </header>
+
+    <main class="hero-section">
+        <h1>Revive Your Old Android Phone <br> with this operating system</h1>
+        <p>ZenOS is an after-market firmware based on Android Open Source Project, inspired by Google Pixel with a refined Material Design UI. We offer a smooth and stable experience for your device with a selected set of features and services that provide an exceptional user experience.</p>
+        <button id="getZenOSButton">Get ZenOS</button>
+        <p class="not-available">Not available for now ⓘ</p>
+    </main>
+
+    <section class="screenshot-section">
+        <div class="screenshot-grid">
+            <div class="screenshot-item">
+                <img src="https://via.placeholder.com/200x400/333333/FFFFFF?text=OS+panel" alt="OS panel screenshot">
+                <p>OS panel</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://via.placeholder.com/200x400/333333/FFFFFF?text=Home+Screen" alt="Home Screen screenshot">
+                <p>Home Screen</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://via.placeholder.com/200x400/333333/FFFFFF?text=Themes" alt="Themes screenshot">
+                <p>Themes</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://via.placeholder.com/200x400/333333/FFFFFF?text=Settings+and+options" alt="Settings and options screenshot">
+                <p>Settings and options</p>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://via.placeholder.com/200x400/333333/FFFFFF?text=About+Device" alt="About Device screenshot">
+                <p>About Device</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="icon-placeholder"></div> <h3>STABLE AND PERFORMADE</h3>
+            <p>Fluid and stable with optimal battery life and performance</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon-placeholder"></div> <h3>CUSTOMIZATION</h3>
+            <p>Customize your whole appearence on your own with ZenOS settings</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Esempio di font, puoi cambiarlo */
+
+:root {
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #AAAAAA;
+    --background-color: #000000;
+    --card-background: #1A1A1A;
+    --button-background: #FFFFFF;
+    --button-text-color: #000000;
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 24px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-text-color);
+}
+
+.navbar .social-icons img {
+    height: 20px;
+    margin-left: 15px;
+    filter: invert(100%); /* Per rendere le icone bianche se sono scure */
+}
+
+.hero-section {
+    text-align: center;
+    padding: 100px 5%;
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+}
+
+.hero-section button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hero-section button:hover {
+    opacity: 0.9;
+}
+
+.hero-section .not-available {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+.screenshot-section {
+    width: 100%;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.screenshot-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: 300px; /* Altezza fissa per le immagini */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.screenshot-item p {
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+.features-section {
+    width: 100%;
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 450px;
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+}
+
+.feature-card .icon-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: var(--border-color); /* Sostituisci con la tua icona */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.feature-card p {
+    color: var(--secondary-text-color);
+}
+
+/* Media Queries per la reattività */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+
+    .navbar nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar nav ul li {
+        margin: 5px 10px;
+    }
+
+    .navbar .social-icons {
+        margin-top: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .screenshot-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Esempio di font, puoi cambiarlo */
+
+:root {
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #AAAAAA;
+    --background-color: #000000;
+    --card-background: #1A1A1A;
+    --button-background: #FFFFFF;
+    --button-text-color: #000000;
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 24px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-text-color);
+}
+
+.navbar .social-icons img {
+    height: 20px;
+    margin-left: 15px;
+    filter: invert(100%); /* Per rendere le icone bianche se sono scure */
+}
+
+.hero-section {
+    text-align: center;
+    padding: 100px 5%;
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+}
+
+.hero-section button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hero-section button:hover {
+    opacity: 0.9;
+}
+
+.hero-section .not-available {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+.screenshot-section {
+    width: 100%;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.screenshot-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: 300px; /* Altezza fissa per le immagini */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.screenshot-item p {
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+}
+
+.features-section {
+    width: 100%;
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 450px;
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+}
+
+.feature-card .icon-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: var(--border-color); /* Sostituisci con la tua icona */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.feature-card p {
+    color: var(--secondary-text-color);
+}
+
+/* Media Queries per la reattività */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+
+    .navbar nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar nav ul li {
+        margin: 5px 10px;
+    }
+
+    .navbar .social-icons {
+        margin-top: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .screenshot-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const getZenOSButton = document.getElementById('getZenOSButton');
+
+    if (getZenOSButton) {
+        getZenOSButton.addEventListener('click', () => {
+            alert('Grazie per l\'interesse! ZenOS non è ancora disponibile. Riprova più tardi!');
+            // In una vera applicazione, qui potresti reindirizzare l'utente a una pagina di registrazione per email o mostrare un modal.
+        });
+    }
+
+    // Puoi aggiungere qui altra logica JavaScript per interazioni dinamiche,
+    // come scroll-based animations, o la gestione di un menu hamburger per mobile.
+});
+
+</script>
+</html>
