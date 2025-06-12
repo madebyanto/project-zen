@@ -60,4 +60,39 @@
 
     <script src="script.js"></script>
 </body>
+    <style>
+        /* Esempio di stili che dovrebbero già essere nel tuo style.css dalla parte precedente */
+.feature-card {
+    /* ... altri stili per la card ... */
+    display: flex;
+    flex-direction: column; /* Per impilare icona, titolo e testo */
+    align-items: flex-start; /* Allinea a sinistra */
+    gap: 15px; /* Spazio tra gli elementi interni */
+}
+
+.feature-card .feature-icon {
+    width: 50px;  /* O la dimensione che desideri per le icone */
+    height: 50px; /* Assicurati che l'altezza sia coerente */
+    /* Potresti aggiungere un margin-bottom se non usi 'gap' sul parent */
+    /* margin-bottom: 15px; */
+}
+
+/* Assicurati anche che la sezione delle features sia flessibile e responsiva */
+.features-section {
+    width: 100%;
+    padding: 80px 5%; /* Padding coerente con la homepage */
+    display: flex;
+    justify-content: center; /* Centra le card */
+    gap: 30px; /* Spazio tra le card */
+    flex-wrap: wrap; /* Per far andare a capo le card su schermi piccoli */
+}
+
+/* La classe `full-width-features` è un po' ridondante se .features-section è già così,
+   ma non fa male. Potrebbe essere usata per override se necessario. */
+.features-section.full-width-features {
+    max-width: 1200px; /* Limita la larghezza massima del contenitore delle features */
+    margin: 0 auto; /* Centra il contenitore */
+}
+
+    </style>
 </html>
