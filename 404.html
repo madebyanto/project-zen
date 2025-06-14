@@ -1,10 +1,196 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenOS - Page Not Found</title> <link rel="stylesheet" href="style.css">
+    <title>ZenOS - Page Not Found</title>
+    
     <link rel="icon" href="https://img.icons8.com/ios-glyphs/30/FFFFFF/zen-circle.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-text-color: #FFFFFF;
+            --secondary-text-color: #AAAAAA;
+            --background-color: #000000;
+            --card-background: #1A1A1A;
+            --button-background: #FFFFFF;
+            --button-text-color: #000000;
+            --border-color: #333333;
+        }
+
+        /* Stili globali */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Per centrare il contenuto principale */
+            min-height: 100vh; /* Assicura che la pagina occupi almeno tutta l'altezza della viewport */
+        }
+
+        /* Stili per la Navbar */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--background-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .navbar .logo span {
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar nav ul li {
+            margin: 0 15px;
+        }
+
+        .navbar nav ul li a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            color: var(--primary-text-color);
+        }
+
+        .navbar .social-icons img {
+            height: 20px;
+            margin-left: 15px;
+            filter: invert(100%);
+        }
+
+        /* Stili per la Hero Section (generalizzati per essere usati anche dalla 404) */
+        .hero-section {
+            flex-grow: 1; /* Permette alla hero section di occupare lo spazio rimanente */
+            width: 100%; /* Occupa tutta la larghezza */
+            display: flex; /* Usiamo flexbox per centrare il contenuto */
+            flex-direction: column; /* Impila gli elementi verticalmente */
+            align-items: center; /* Centra orizzontalmente */
+            justify-content: center; /* Centra verticalmente */
+            padding: 100px 5%; /* Padding per dare spazio intorno al contenuto */
+            max-width: 800px; /* Limita la larghezza del testo/contenuto principale */
+            text-align: center; /* Centra il testo all'interno degli elementi */
+            margin: 0 auto; /* Centra il blocco hero-section stesso */
+        }
+        
+        /* Stili specifici per la pagina 404 all'interno di hero-section */
+        .hero-section .error-icon {
+            width: 150px; /* Dimensione dell'immagine dell'errore */
+            height: auto; /* Mantiene le proporzioni */
+            margin-bottom: 30px; /* Spazio sotto l'immagine */
+            filter: invert(100%); /* Per renderla bianca se l'icona originale è scura */
+        }
+
+        .hero-section h1 {
+            font-size: 4.5em; /* Grandezza del testo 404/503 */
+            margin-bottom: 15px;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: var(--secondary-text-color);
+        }
+
+        .home-button {
+            background-color: var(--button-background);
+            color: var(--button-text-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none; /* Rimuove la sottolineatura del link */
+            transition: opacity 0.3s ease;
+            display: inline-block; /* Per applicare padding e width */
+        }
+
+        .home-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Media Queries per la responsività */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+
+            .navbar nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navbar nav ul li {
+                margin: 5px 10px;
+            }
+
+            .navbar .social-icons {
+                margin-top: 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 3.5em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
+            }
+
+            .hero-section .error-icon {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2.8em;
+            }
+
+            .hero-section p {
+                font-size: 0.9em;
+            }
+            .hero-section .error-icon {
+                width: 80px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -26,84 +212,12 @@
         </div>
     </header>
 
-    <main class="hero-section error-404-section">
-        <img src="error.png" alt="Error Icon" class="error-icon"> <h1>404 / 503</h1>
+    <main class="hero-section">
+        <img src="error.png" alt="Error Icon" class="error-icon"> 
+        <h1>404 / 503</h1>
         <p>It seems this page does not exist or is under development/maintenance.</p>
-        <a href="index.html" class="home-button">Go to Homepage</a> </main>
-
-<style>
-/* Stili specifici per la pagina 404 */
-.error-404-section {
-    padding-top: 50px; /* Un po' meno padding in alto per l'immagine */
-    padding-bottom: 100px; /* Più spazio in basso */
-    display: flex;
-    flex-direction: column; /* Per impilare gli elementi verticalmente */
-    align-items: center; /* Centra gli elementi orizzontalmente */
-    justify-content: center; /* Centra verticalmente se c'è spazio */
-    min-height: 70vh; /* Assicura che la sezione occupi almeno il 70% dell'altezza della viewport */
-}
-
-.error-404-section .error-icon {
-    width: 150px; /* Dimensione dell'immagine dell'errore */
-    height: auto; /* Mantiene le proporzioni */
-    margin-bottom: 30px; /* Spazio sotto l'immagine */
-    filter: invert(100%); /* Per renderla bianca se l'icona originale è scura */
-}
-
-.error-404-section h1 {
-    font-size: 4.5em; /* Grandezza del testo 404/503 */
-    margin-bottom: 15px;
-}
-
-.error-404-section p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: var(--secondary-text-color);
-}
-
-.home-button {
-    background-color: var(--button-background);
-    color: var(--button-text-color);
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-    text-decoration: none; /* Rimuove la sottolineatura del link */
-    transition: opacity 0.3s ease;
-    display: inline-block; /* Per applicare padding e width */
-}
-
-.home-button:hover {
-    opacity: 0.9;
-}
-
-/* Media Queries per la responsività della pagina 404 */
-@media (max-width: 768px) {
-    .error-404-section h1 {
-        font-size: 3.5em;
-    }
-
-    .error-404-section p {
-        font-size: 1em;
-    }
-
-    .error-404-section .error-icon {
-        width: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .error-404-section h1 {
-        font-size: 2.8em;
-    }
-
-    .error-404-section p {
-        font-size: 0.9em;
-    }
-}
-
-</style>
+        <a href="index.html" class="home-button">Go to Homepage</a> 
+    </main>
     
     <script src="script.js"></script>
 </body>
